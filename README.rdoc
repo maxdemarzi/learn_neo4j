@@ -1,4 +1,70 @@
-== Welcome to Rails
+== Learn Neo4j
+
+We're building a learning site for Graphs and Neo4j.
+
+Goals:
+
+  - Easy to navivate
+  - Curated at first, then crowd sourced
+  - Link to Content but Archive it as well
+  - Searchable
+  - Conversationalist
+
+Ideas:
+
+  - Next to create an Experience not just a tool
+  - Small navigation Map like http://kirkas.ch/ascensor/ and http://reverseburo.com/
+  - Capture content with http://html2canvas.hertzen.com/ for archiving
+  - Add Gamification principles to content contribution/curation
+
+
+== Model
+
+Super early draft of model:
+
+  Topic <-[:part_of]- Topic
+  Topic <-[:belongs_to]- Content
+  Content <-[:about]- Conversation
+
+=== Topic
+
+We want to include topics about graph theory as well as neo4j.
+We'll have to curate this or grab it from Wikipedia. 
+
+=== Content
+
+Content can be:
+
+  People       - Ask questions
+  Article      - Read 
+  Image        - See
+  Video        - Watch
+  Presentation - Understand
+  Book         - Reference
+  Code         - Share
+
+=== Conversations
+
+We want to avoid topic bloat (like a forum/google group) and instead 
+let people have real time (chat like) conversations about topics.
+
+Relationships:
+
+  weight ? To indicate strength of connection
+  position ? To order content 
+
+
+=== Contributors
+
+Max De Marzi 
+Andread Kolleger 
+Sandeep Patil 
+
+
+That concludes the Project Readme, below is Rails.
+
+
+== Rails
 
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
@@ -130,8 +196,6 @@ directory.
 
 Options:
 
-* Passing the <tt>-s, --sandbox</tt> argument will rollback any modifications
-  made to the database.
 * Passing an environment name as an argument will load the corresponding
   environment. Example: <tt>rails console production</tt>.
 
@@ -141,15 +205,6 @@ To reload your controllers and models after launching the console run
 More information about irb can be found at:
 link:http://www.rubycentral.org/pickaxe/irb.html
 
-
-== dbconsole
-
-You can go to the command line of your database directly through <tt>rails
-dbconsole</tt>. You would be connected to the database with the credentials
-defined in database.yml. Starting the script without arguments will connect you
-to the development database. Passing an argument will connect you to a different
-database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
-PostgreSQL and SQLite 3.
 
 == Description of Contents
 
