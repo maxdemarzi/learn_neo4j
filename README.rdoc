@@ -12,7 +12,7 @@ Goals:
 
 Ideas:
 
-  - Next to create an Experience not just a tool
+  - Need to create an Experience not just a tool
   - Small navigation Map like http://kirkas.ch/ascensor/ and http://reverseburo.com/
   - Capture content with http://html2canvas.hertzen.com/ for archiving
   - Add Gamification principles to content contribution/curation
