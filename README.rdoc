@@ -48,6 +48,10 @@ Content can be:
 We want to avoid topic bloat (like a forum/google group) and instead 
 let people have real time (chat like) conversations about topics.
 
+Another reason for this is the HN effect.  
+Notice that a blog post can have zero comments on the original posters site, but can have 100 comments on the Hacker News link to it.
+We are going to try to recreate that effect.
+
 Relationships:
 
   weight ? To indicate strength of connection
