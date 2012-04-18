@@ -61,8 +61,8 @@ Relationships:
 
 === To-Do
 
-1. Build sample Peepcode Backbone js application using coffeescript
-2. Add directional arrows to Library to allow for nested and sibling topic navigation
+  1. Build sample Peepcode Backbone js application using coffeescript
+  2. Add directional arrows to Library to allow for nested and sibling topic navigation
 
 
 === Testing Notes
@@ -73,6 +73,6 @@ Relationships:
 
 === Contributors
 
-Max De Marzi 
-Andread Kolleger 
-Sandeep Patil 
+  Max De Marzi 
+  Andread Kolleger 
+  Sandeep Patil 

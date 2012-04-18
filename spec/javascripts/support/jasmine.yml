@@ -11,7 +11,13 @@
 #   - dist/**/*.js
 #
 src_files:
-    - public/javascripts/**/*.js
+    - public/javascripts/vendor/underscore.min.js
+    - public/javascripts/vendor/modernizr.min.js
+    - public/javascripts/vendor/json2.js
+    - public/javascripts/vendor/jquery.min.js
+    - public/javascripts/vendor/backbone.min.js
+    - public/javascripts/learn/*.js
+    - public/javascripts/*.js
 
 # stylesheets
 #
