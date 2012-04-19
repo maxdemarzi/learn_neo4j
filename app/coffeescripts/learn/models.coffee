@@ -3,7 +3,7 @@
 class Album extends Backbone.Model
   isFirstTrack: (index) ->
     index == 0
-  isFirstTrack: (index)->
+  isLastTrack: (index)->
     index >= this.get('tracks').length - 1
   trackUrlAtIndex: (index) ->
     if this.get('tracks').length >= index

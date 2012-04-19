@@ -16,7 +16,9 @@ src_files:
     - public/javascripts/vendor/json2.js
     - public/javascripts/vendor/jquery.min.js
     - public/javascripts/vendor/backbone.min.js
-    - public/javascripts/learn/*.js
+    - public/javascripts/learn/models.js
+    - public/javascripts/learn/collections.js
+    - public/javascripts/learn/util.js
     - public/javascripts/*.js
 
 # stylesheets
