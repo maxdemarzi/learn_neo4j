@@ -12,39 +12,70 @@ class Playlist extends Albums
   isLastAlbum: (index) ->
     index == (@models.length - 1)
 
+@app.Albums   = Albums
+@app.Playlist = Playlist
+
 class Player extends Backbone.Model
   defaults:
     currentAlbumIndex: 0
     currentTrackIndex: 0
     state: 'stop'
   initialize: ->
-    @playlist = new Playlist
+    @playlist = new app.Playlist
   reset: ->
-    @set currentAlbumIndex:0
-    @set currentTrackIndex:0
-    @set state:'stop'
+    @set currentAlbumIndex: 0
+    @set currentTrackIndex: 0
+    @set state: 'stop'
   play: ->
     @set state:'play'
     @trigger('change:currentTrackIndex')
     @logCurrentAlbumAndTrack()
   pause: ->
-    @set state:'pause'
+    @set state: 'pause'
   isPlaying: ->
-    state == 'play'
+    @get('state') == 'play'
   isStopped: ->
-    !isPlaying
+    !@isPlaying()
   currentAlbum: ->
-    playlist.at(@get('currentAlbumIndex'))
+    @playlist.at(@get('currentAlbumIndex'))
   currentTrackUrl: ->
-    album = currentAlbum()
+    album = @currentAlbum()
     if (album)
       album.trackUrlAtIndex(@get('currentTrackIndex'))
     else
       null
+  nextTrack: ->
+    currentTrackIndex = @get('currentTrackIndex')
+    currentAlbumIndex = @get('currentAlbumIndex')
+    if (@currentAlbum().isLastTrack(currentTrackIndex))
+      if (@playlist.isLastAlbum(currentAlbumIndex))
+        @set 'currentAlbumIndex': 0
+        @set 'currentTrackIndex': 0
+      else
+        @set 'currentAlbumIndex': currentAlbumIndex + 1
+        @set 'currentTrackIndex': 0
+    else
+      @set 'currentTrackIndex': currentTrackIndex + 1
+    @logCurrentAlbumAndTrack()
+  prevTrack: ->
+    currentTrackIndex = @get('currentTrackIndex')
+    currentAlbumIndex = @get('currentAlbumIndex')
+    lastModelIndex = 0
+    if (@currentAlbum().isFirstTrack(currentTrackIndex))
+      if (@playlist.isFirstAlbum(currentAlbumIndex))
+        lastModelIndex = @playlist.models.length -1
+        @set 'currentAlbumIndex': lastModelIndex
+      else
+        @set 'currentAlbumIndex': currentAlbumIndex - 1
+    else
+      @set 'currentTrackIndex': currentTrackIndex - 1
+    @logCurrentAlbumAndTrack()
+  logCurrentAlbumAndTrack: ->
+    console.log("Player " +
+    @get('currentAlbumIndex') + ':' +
+    @get('currentTrackIndex'), @)
 
-@app.Albums   = Albums
-@app.Playlist = Playlist
 @app.Player   = Player
 
-@app.library = new Albums()
-@app.player  = new Player()
+@app.library = new Albums
+@app.player  = new Player
