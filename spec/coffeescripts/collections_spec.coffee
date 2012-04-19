@@ -26,9 +26,17 @@ describe "Playlist", ->
 
   it "identifies last album as last", ->
     @playlist.add(albumData[1])
-    console.log(@playlist)
     expect(@playlist.isLastAlbum(1)).toBeTruthy()
 
   it "rejects non-last album as last", ->
     @playlist.add(albumData[1]) 
     expect(@playlist.isLastAlbum(0)).toBeFalsy()
+
+describe "Player", ->
+  describe "with no items", ->
+    beforeEach ->
+      @player = new app.Player
+    it "starts with album 0", ->
+      expect(@player.get('currentAlbumIndex')).toEqual(0)
+    it "starts with track 0", ->
+      expect(@player.get('currentTrackIndex')).toEqual(0)
