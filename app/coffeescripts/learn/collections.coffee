@@ -63,10 +63,12 @@ class Player extends Backbone.Model
     lastModelIndex = 0
     if (@currentAlbum().isFirstTrack(currentTrackIndex))
       if (@playlist.isFirstAlbum(currentAlbumIndex))
-        lastModelIndex = @playlist.models.length -1
+        lastModelIndex = @playlist.models.length - 1
         @set 'currentAlbumIndex': lastModelIndex
       else
         @set 'currentAlbumIndex': currentAlbumIndex - 1
+      lastTrackIndex = @currentAlbum().get('tracks').length - 1
+      @set 'currentTrackIndex': lastTrackIndex
     else
       @set 'currentTrackIndex': currentTrackIndex - 1
     @logCurrentAlbumAndTrack()
