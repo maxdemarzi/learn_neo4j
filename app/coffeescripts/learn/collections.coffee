@@ -79,5 +79,5 @@ class Player extends Backbone.Model
 
 @app.Player   = Player
 
-@app.library = new Albums
-@app.player  = new Player
+@app.library = new Albums()
+@app.player  = new Player()
